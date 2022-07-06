@@ -1,9 +1,20 @@
 <h1>投稿一覧</h1>
 <%= form_with model:@post do |f| %>
+  <p>タイトルを入力してください</p>
+  <%= f.text_field :title%>
   <p>投稿したい文章を入力してください</p>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
   <%= f.submit '送信' %>
 <% end %>
+<table>
+<tr>
+  <td>タイトル</td>
+  <td>本文</td>
+</tr>
 <% @posts.each do |post| %>
-<p><%= post.body %></p>
+<tr>
+  <td><p><%= post.title%></p></td>
+  <td><p><%= post.body %></p></td>
+</tr>
 <% end %>
+</table>
